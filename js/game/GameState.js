@@ -258,14 +258,37 @@ class GameState {
 
     /**
      * Check if level is complete
+     * Level is complete when ALL cells are filled with paths
      */
     _checkCompletion() {
-        // All points connected when we've connected all points
-        if (this._state.connectedPoints.size === this._state.totalPoints) {
+        const totalCells = this._state.gridSize * this._state.gridSize;
+        const filledCells = this._state.occupiedCells.size;
+
+        // Level is complete when all cells are filled
+        if (filledCells === totalCells) {
             this._state.isComplete = true;
             this._state.gameState = GAME_STATES.COMPLETED;
             this._notify('levelComplete');
         }
+    }
+
+    /**
+     * Get completion progress (percentage of cells filled)
+     * @returns {number} Percentage 0-100
+     */
+    getProgress() {
+        const totalCells = this._state.gridSize * this._state.gridSize;
+        const filledCells = this._state.occupiedCells.size;
+        return Math.round((filledCells / totalCells) * 100);
+    }
+
+    /**
+     * Get remaining cells count
+     * @returns {number}
+     */
+    getRemainingCells() {
+        const totalCells = this._state.gridSize * this._state.gridSize;
+        return totalCells - this._state.occupiedCells.size;
     }
 
     // =========================================
