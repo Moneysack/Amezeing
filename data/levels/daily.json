@@ -1,0 +1,4 @@
+{
+    "description": "Daily puzzles are generated programmatically based on date",
+    "note": "The LevelManager will use a date-based hash to select from existing levels"
+}

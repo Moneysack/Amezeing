@@ -1,0 +1,400 @@
+/* =============================================
+   AMAZEING - Responsive Styles
+   ============================================= */
+
+/* =============================================
+   MOBILE FIRST - BASE (< 360px)
+   ============================================= */
+@media (max-width: 359px) {
+    :root {
+        --cell-size: 36px;
+        --point-size: 26px;
+    }
+
+    .app-container {
+        padding: 8px 12px;
+    }
+
+    .timer {
+        font-size: 1rem;
+    }
+
+    .level-name {
+        font-size: 1rem;
+    }
+
+    .theme-indicator {
+        font-size: 0.75rem;
+    }
+
+    .control-btn {
+        padding: 10px 14px;
+        min-width: 60px;
+    }
+
+    .btn-icon {
+        font-size: 1.25rem;
+    }
+
+    .btn-label {
+        font-size: 0.65rem;
+    }
+
+    .pattern-preview canvas {
+        width: 40px;
+        height: 40px;
+    }
+
+    /* Smaller grids for tiny screens */
+    .grid-container[data-size="8"] {
+        --cell-size: 32px;
+    }
+
+    .grid-container[data-size="10"] {
+        --cell-size: 26px;
+    }
+
+    .grid-container[data-size="12"] {
+        --cell-size: 22px;
+    }
+
+    .points-overlay[data-size="8"] {
+        --cell-size: 32px;
+    }
+
+    .points-overlay[data-size="10"] {
+        --cell-size: 26px;
+    }
+
+    .points-overlay[data-size="12"] {
+        --cell-size: 22px;
+    }
+}
+
+/* =============================================
+   SMALL PHONES (360px - 480px)
+   ============================================= */
+@media (min-width: 360px) and (max-width: 480px) {
+    :root {
+        --cell-size: 42px;
+        --point-size: 28px;
+    }
+
+    .grid-container[data-size="8"] {
+        --cell-size: 36px;
+    }
+
+    .grid-container[data-size="10"] {
+        --cell-size: 30px;
+    }
+
+    .grid-container[data-size="12"] {
+        --cell-size: 26px;
+    }
+
+    .points-overlay[data-size="8"] {
+        --cell-size: 36px;
+    }
+
+    .points-overlay[data-size="10"] {
+        --cell-size: 30px;
+    }
+
+    .points-overlay[data-size="12"] {
+        --cell-size: 26px;
+    }
+}
+
+/* =============================================
+   LARGE PHONES (481px - 640px)
+   ============================================= */
+@media (min-width: 481px) and (max-width: 640px) {
+    :root {
+        --cell-size: 48px;
+        --point-size: 32px;
+    }
+
+    .app-container {
+        padding: 16px 20px;
+    }
+
+    .grid-container[data-size="10"] {
+        --cell-size: 38px;
+    }
+
+    .grid-container[data-size="12"] {
+        --cell-size: 32px;
+    }
+
+    .points-overlay[data-size="10"] {
+        --cell-size: 38px;
+    }
+
+    .points-overlay[data-size="12"] {
+        --cell-size: 32px;
+    }
+}
+
+/* =============================================
+   TABLETS (641px - 1024px)
+   ============================================= */
+@media (min-width: 641px) and (max-width: 1024px) {
+    :root {
+        --cell-size: 52px;
+        --point-size: 36px;
+    }
+
+    .app-container {
+        max-width: 700px;
+        padding: 20px 24px;
+    }
+
+    .timer {
+        font-size: 1.5rem;
+    }
+
+    .level-name {
+        font-size: 1.25rem;
+    }
+
+    .control-btn {
+        padding: 14px 24px;
+        min-width: 80px;
+    }
+
+    .btn-icon {
+        font-size: 1.75rem;
+    }
+
+    .btn-label {
+        font-size: 0.875rem;
+    }
+
+    .pattern-preview canvas {
+        width: 56px;
+        height: 56px;
+    }
+
+    .grid-container[data-size="12"] {
+        --cell-size: 42px;
+    }
+
+    .points-overlay[data-size="12"] {
+        --cell-size: 42px;
+    }
+
+    /* Larger modals */
+    .modal {
+        max-width: 500px;
+    }
+}
+
+/* =============================================
+   DESKTOP (> 1024px)
+   ============================================= */
+@media (min-width: 1025px) {
+    :root {
+        --cell-size: 56px;
+        --point-size: 40px;
+    }
+
+    .app-container {
+        max-width: 800px;
+        padding: 24px 32px;
+    }
+
+    .timer {
+        font-size: 1.5rem;
+    }
+
+    .level-name {
+        font-size: 1.375rem;
+    }
+
+    .game-controls {
+        gap: 20px;
+    }
+
+    .control-btn {
+        padding: 16px 28px;
+        min-width: 90px;
+    }
+
+    .btn-icon {
+        font-size: 2rem;
+    }
+
+    .pattern-preview canvas {
+        width: 64px;
+        height: 64px;
+    }
+
+    /* Hover effects for desktop */
+    .cell:hover {
+        transform: scale(1.02);
+    }
+
+    .control-btn:hover {
+        transform: translateY(-2px);
+    }
+
+    .modal {
+        max-width: 500px;
+        padding: 32px;
+    }
+}
+
+/* =============================================
+   LANDSCAPE ORIENTATION (Short screens)
+   ============================================= */
+@media (orientation: landscape) and (max-height: 500px) {
+    :root {
+        --cell-size: 36px;
+        --point-size: 26px;
+    }
+
+    .app-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 8px 16px;
+        max-width: none;
+    }
+
+    .game-header {
+        width: 100%;
+        padding: 4px 0;
+    }
+
+    .header-center {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+    }
+
+    .theme-indicator {
+        margin-top: 0;
+    }
+
+    .game-main {
+        flex: 1;
+        padding: 8px 0;
+    }
+
+    .pattern-preview {
+        position: relative;
+        top: auto;
+        right: auto;
+        margin-right: 16px;
+    }
+
+    .game-controls {
+        flex-direction: column;
+        padding: 8px;
+        gap: 8px;
+    }
+
+    .control-btn {
+        padding: 8px 12px;
+        min-width: auto;
+    }
+
+    .btn-label {
+        display: none;
+    }
+
+    /* Smaller grids in landscape */
+    .grid-container[data-size="6"] {
+        --cell-size: 40px;
+    }
+
+    .grid-container[data-size="8"] {
+        --cell-size: 32px;
+    }
+
+    .grid-container[data-size="10"] {
+        --cell-size: 28px;
+    }
+
+    .grid-container[data-size="12"] {
+        --cell-size: 24px;
+    }
+
+    .points-overlay[data-size="6"] {
+        --cell-size: 40px;
+    }
+
+    .points-overlay[data-size="8"] {
+        --cell-size: 32px;
+    }
+
+    .points-overlay[data-size="10"] {
+        --cell-size: 28px;
+    }
+
+    .points-overlay[data-size="12"] {
+        --cell-size: 24px;
+    }
+}
+
+/* =============================================
+   HIGH DPI / RETINA DISPLAYS
+   ============================================= */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .pattern-preview canvas {
+        image-rendering: -webkit-optimize-contrast;
+    }
+}
+
+/* =============================================
+   TOUCH DEVICES
+   ============================================= */
+@media (hover: none) and (pointer: coarse) {
+    /* Remove hover effects on touch devices */
+    .cell:hover {
+        background: var(--cell-bg);
+        transform: none;
+    }
+
+    .control-btn:hover {
+        background: var(--btn-bg);
+        transform: none;
+    }
+
+    /* Larger touch targets */
+    .icon-btn {
+        width: 48px;
+        height: 48px;
+    }
+
+    .close-btn {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+/* =============================================
+   PRINT (for sharing artwork)
+   ============================================= */
+@media print {
+    body {
+        background: white;
+    }
+
+    .background,
+    .game-header,
+    .game-controls,
+    .pattern-preview,
+    .modal-overlay {
+        display: none !important;
+    }
+
+    .app-container {
+        max-width: none;
+        padding: 0;
+    }
+
+    .grid-container {
+        box-shadow: none;
+        border: 2px solid #333;
+    }
+}

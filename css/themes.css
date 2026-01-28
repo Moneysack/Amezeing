@@ -1,0 +1,239 @@
+/* =============================================
+   AMAZEING - Theme Styles
+   ============================================= */
+
+/* =============================================
+   THEME: Star Sky (Default)
+   ============================================= */
+[data-theme="star-sky"] {
+    --bg-primary: #0a0a1a;
+    --bg-secondary: #12122a;
+    --line-color: #ffd700;
+    --point-bg: #ffd700;
+    --point-color: #1a1a2e;
+    --point-connected-bg: #ff9500;
+}
+
+[data-theme="star-sky"] .background {
+    background:
+        radial-gradient(2px 2px at 20px 30px, #ffffff, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #ffffff, transparent),
+        radial-gradient(2px 2px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 160px 120px, #ffffff, transparent),
+        radial-gradient(2px 2px at 200px 50px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 250px 160px, #ffffff, transparent),
+        radial-gradient(2px 2px at 280px 90px, rgba(255,255,255,0.7), transparent),
+        radial-gradient(1px 1px at 320px 200px, #ffffff, transparent),
+        radial-gradient(2px 2px at 360px 140px, rgba(255,255,255,0.9), transparent),
+        linear-gradient(180deg, #0a0a1a 0%, #1a1a3a 50%, #0f0f2a 100%);
+    background-size: 400px 400px, 400px 400px, 400px 400px, 400px 400px, 400px 400px,
+                     400px 400px, 400px 400px, 400px 400px, 400px 400px, 400px 400px,
+                     100% 100%;
+    animation: twinkle 4s ease-in-out infinite;
+}
+
+/* =============================================
+   THEME: Galaxy
+   ============================================= */
+[data-theme="galaxy"] {
+    --bg-primary: #0d0221;
+    --bg-secondary: #1a0533;
+    --line-color: #9b59b6;
+    --point-bg: #e74c3c;
+    --point-color: #ffffff;
+    --point-connected-bg: #8e44ad;
+}
+
+[data-theme="galaxy"] .background {
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(155, 89, 182, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 60%, rgba(52, 152, 219, 0.2) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 80%, rgba(231, 76, 60, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at center, #1a0533 0%, #0d0221 70%);
+}
+
+[data-theme="galaxy"] .cell {
+    border-color: rgba(155, 89, 182, 0.3);
+}
+
+[data-theme="galaxy"] .point {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(231, 76, 60, 0.5);
+}
+
+/* =============================================
+   THEME: Ship / Ocean
+   ============================================= */
+[data-theme="ship"] {
+    --bg-primary: #0a2a4a;
+    --bg-secondary: #1a3a5c;
+    --line-color: #3498db;
+    --point-bg: #2ecc71;
+    --point-color: #ffffff;
+    --point-connected-bg: #27ae60;
+}
+
+[data-theme="ship"] .background {
+    background:
+        linear-gradient(180deg,
+            #87ceeb 0%,
+            #5ba3c6 20%,
+            #3498db 40%,
+            #1a3a5c 60%,
+            #0a2a4a 80%,
+            #051525 100%);
+}
+
+[data-theme="ship"] .cell {
+    border-color: rgba(52, 152, 219, 0.3);
+}
+
+[data-theme="ship"]::before {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(transparent, rgba(26, 58, 92, 0.5));
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* =============================================
+   THEME: Rocket / Space
+   ============================================= */
+[data-theme="rocket"] {
+    --bg-primary: #0f0f23;
+    --bg-secondary: #1a1a3a;
+    --line-color: #e74c3c;
+    --point-bg: #f39c12;
+    --point-color: #000000;
+    --point-connected-bg: #d35400;
+}
+
+[data-theme="rocket"] .background {
+    background:
+        radial-gradient(1px 1px at 50px 50px, #fff, transparent),
+        radial-gradient(1px 1px at 100px 150px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 200px 100px, #fff, transparent),
+        radial-gradient(2px 2px at 300px 200px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(1px 1px at 400px 300px, #fff, transparent),
+        radial-gradient(ellipse at 80% 20%, rgba(231, 76, 60, 0.1) 0%, transparent 30%),
+        linear-gradient(180deg, #0f0f23 0%, #1a1a3a 100%);
+    background-size: 500px 400px, 500px 400px, 500px 400px, 500px 400px, 500px 400px,
+                     100% 100%, 100% 100%;
+}
+
+[data-theme="rocket"] .cell {
+    border-color: rgba(231, 76, 60, 0.25);
+}
+
+[data-theme="rocket"] .point {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 10px rgba(243, 156, 18, 0.5);
+}
+
+/* =============================================
+   THEME: Heart
+   ============================================= */
+[data-theme="heart"] {
+    --bg-primary: #2d1f3d;
+    --bg-secondary: #3d2a4d;
+    --line-color: #ff69b4;
+    --point-bg: #ff1493;
+    --point-color: #ffffff;
+    --point-connected-bg: #c71585;
+}
+
+[data-theme="heart"] .background {
+    background:
+        radial-gradient(ellipse at 20% 30%, rgba(255, 20, 147, 0.15) 0%, transparent 40%),
+        radial-gradient(ellipse at 80% 70%, rgba(255, 105, 180, 0.1) 0%, transparent 40%),
+        radial-gradient(ellipse at 50% 50%, rgba(199, 21, 133, 0.1) 0%, transparent 50%),
+        linear-gradient(135deg, #2d1f3d 0%, #4a1942 50%, #2d1f3d 100%);
+}
+
+[data-theme="heart"] .cell {
+    border-color: rgba(255, 105, 180, 0.3);
+}
+
+[data-theme="heart"] .point {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 20, 147, 0.5);
+}
+
+[data-theme="heart"] .primary-btn {
+    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+}
+
+/* =============================================
+   THEME: Neon City
+   ============================================= */
+[data-theme="neon-city"] {
+    --bg-primary: #0a0a0a;
+    --bg-secondary: #1a1a1a;
+    --line-color: #00ffff;
+    --point-bg: #ff00ff;
+    --point-color: #000000;
+    --point-connected-bg: #00ff00;
+}
+
+[data-theme="neon-city"] .background {
+    background:
+        linear-gradient(180deg,
+            #0a0a0a 0%,
+            #0a0a15 40%,
+            #1a0a2a 70%,
+            #0a0a0a 100%);
+}
+
+[data-theme="neon-city"]::before {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 200px;
+    background:
+        linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 255, 255, 0.03) 25%,
+            rgba(255, 0, 255, 0.03) 50%,
+            rgba(255, 255, 0, 0.03) 75%,
+            transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+[data-theme="neon-city"] .cell {
+    border-color: rgba(0, 255, 255, 0.3);
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.1);
+}
+
+[data-theme="neon-city"] .point {
+    box-shadow:
+        0 0 10px var(--point-bg),
+        0 0 20px var(--point-bg),
+        0 0 30px var(--point-bg);
+}
+
+[data-theme="neon-city"] .point.connected {
+    box-shadow:
+        0 0 10px var(--point-connected-bg),
+        0 0 20px var(--point-connected-bg),
+        0 0 30px var(--point-connected-bg);
+}
+
+[data-theme="neon-city"] .grid-container {
+    box-shadow:
+        0 0 20px rgba(0, 255, 255, 0.2),
+        inset 0 0 20px rgba(0, 255, 255, 0.05);
+}
+
+[data-theme="neon-city"] .primary-btn {
+    background: linear-gradient(135deg, #00ffff 0%, #ff00ff 100%);
+    color: #000;
+}
+
+[data-theme="neon-city"] .control-btn:hover {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}

@@ -1,0 +1,213 @@
+/* =============================================
+   AMAZEING - Animations
+   ============================================= */
+
+/* =============================================
+   KEYFRAMES
+   ============================================= */
+
+/* Pulse animation for active point */
+@keyframes pulse-point {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: var(--shadow-soft), 0 0 15px var(--point-bg);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: var(--shadow-soft), 0 0 25px var(--point-bg);
+    }
+}
+
+/* Pulse animation for hint cells */
+@keyframes pulse-hint {
+    0%, 100% {
+        background: var(--hint-bg);
+    }
+    50% {
+        background: rgba(255, 255, 100, 0.5);
+    }
+}
+
+/* Shake animation for invalid moves */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    20% { transform: translateX(-4px); }
+    40% { transform: translateX(4px); }
+    60% { transform: translateX(-4px); }
+    80% { transform: translateX(4px); }
+}
+
+/* Star twinkle effect */
+@keyframes twinkle {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.8; }
+}
+
+/* Modal appear animation */
+@keyframes modal-appear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Win celebration animation */
+@keyframes celebrate {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.05);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Path draw animation */
+@keyframes path-draw {
+    from {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Glow pulse */
+@keyframes glow-pulse {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--line-color);
+    }
+    50% {
+        box-shadow: 0 0 20px var(--line-color), 0 0 30px var(--line-color);
+    }
+}
+
+/* Fade in */
+@keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Slide up */
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bounce */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Spin (for loading) */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* =============================================
+   ANIMATION CLASSES
+   ============================================= */
+
+.animate-fade-in {
+    animation: fade-in 0.3s ease forwards;
+}
+
+.animate-slide-up {
+    animation: slide-up 0.4s ease forwards;
+}
+
+.animate-bounce {
+    animation: bounce 0.5s ease;
+}
+
+.animate-celebrate {
+    animation: celebrate 0.6s ease;
+}
+
+.animate-glow {
+    animation: glow-pulse 1.5s ease infinite;
+}
+
+/* Path segment animation */
+.path-segment {
+    animation: path-draw 0.15s ease forwards;
+}
+
+/* Win modal special animations */
+.win-modal-active .final-artwork {
+    animation: celebrate 0.6s ease;
+}
+
+.win-modal-active .modal h2 {
+    animation: bounce 0.6s ease 0.2s;
+}
+
+/* =============================================
+   TRANSITIONS
+   ============================================= */
+
+/* Smooth transitions for interactive elements */
+.cell,
+.point,
+.control-btn,
+.menu-btn,
+.level-btn,
+.theme-btn,
+.primary-btn,
+.secondary-btn {
+    transition: all 0.2s ease;
+}
+
+/* Grid container transition for size changes */
+.grid-container {
+    transition: transform 0.3s ease;
+}
+
+/* Theme transition */
+body {
+    transition: background-color 0.5s ease;
+}
+
+.background {
+    transition: background 0.5s ease, opacity 0.5s ease;
+}
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
