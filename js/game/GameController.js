@@ -413,30 +413,65 @@ export class GameController {
      * Generate and load a random level
      */
     generateRandomLevel() {
-        const presets = LevelGenerator.getPresets();
-        const preset = presets[this.currentDifficulty] || presets.easy;
+        try {
+            console.log('Generating random level with difficulty:', this.currentDifficulty);
+            const presets = LevelGenerator.getPresets();
+            const preset = presets[this.currentDifficulty] || presets.easy;
 
-        const level = LevelGenerator.generate({
-            size: preset.size,
-            numPoints: preset.numPoints,
-            obstaclePercent: preset.obstaclePercent
-        });
-
-        if (level) {
-            this.isRandomMode = true;
-            this.loadLevel(level);
-        } else {
-            console.error('Failed to generate level');
-            // Try again with simpler settings
-            const simpleLevel = LevelGenerator.generate({
-                size: 6,
-                numPoints: 2,
-                obstaclePercent: 0
+            console.log('Using preset:', preset);
+            const level = LevelGenerator.generate({
+                size: preset.size,
+                numPoints: preset.numPoints,
+                obstaclePercent: preset.obstaclePercent
             });
-            if (simpleLevel) {
-                this.loadLevel(simpleLevel);
+
+            if (level) {
+                console.log('Level generated successfully:', level.id);
+                this.isRandomMode = true;
+                this.loadLevel(level);
+            } else {
+                console.error('Failed to generate level, trying simpler settings');
+                // Try again with simpler settings
+                const simpleLevel = LevelGenerator.generate({
+                    size: 6,
+                    numPoints: 2,
+                    obstaclePercent: 0
+                });
+                if (simpleLevel) {
+                    this.loadLevel(simpleLevel);
+                } else {
+                    // Ultimate fallback - load a static level
+                    this._loadFallbackLevel();
+                }
             }
+        } catch (error) {
+            console.error('Error generating random level:', error);
+            console.error('Stack:', error.stack);
+            // Load fallback level on error
+            this._loadFallbackLevel();
         }
+    }
+
+    /**
+     * Load a simple fallback level when generation fails
+     */
+    _loadFallbackLevel() {
+        console.log('Loading fallback level');
+        const fallbackLevel = {
+            id: 'fallback-1',
+            name: 'Simple Puzzle',
+            size: 6,
+            theme: 'star-sky',
+            difficulty: 1,
+            points: [
+                { number: 1, row: 0, col: 0 },
+                { number: 2, row: 5, col: 5 }
+            ],
+            obstacles: [],
+            solution: []
+        };
+        this.isRandomMode = true;
+        this.loadLevel(fallbackLevel);
     }
 
     /**

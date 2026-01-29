@@ -155,8 +155,9 @@ export class LevelGenerator {
 
             const visited = new Set();
             const path = [];
+            const state = { iterations: 0, maxIterations: 50000 };
 
-            if (this._hamiltonianDFS(grid, size, start.row, start.col, visited, path, totalCells)) {
+            if (this._hamiltonianDFS(grid, size, start.row, start.col, visited, path, totalCells, state)) {
                 return path;
             }
         }
@@ -168,7 +169,13 @@ export class LevelGenerator {
      * DFS with Warnsdorff's heuristic for Hamiltonian path
      * @private
      */
-    static _hamiltonianDFS(grid, size, row, col, visited, path, target) {
+    static _hamiltonianDFS(grid, size, row, col, visited, path, target, state) {
+        // Check iteration limit to prevent long waits
+        state.iterations++;
+        if (state.iterations > state.maxIterations) {
+            return false;
+        }
+
         const key = `${row},${col}`;
         visited.add(key);
         path.push({ row, col });
@@ -193,7 +200,7 @@ export class LevelGenerator {
         }
 
         for (const next of neighbors) {
-            if (this._hamiltonianDFS(grid, size, next.row, next.col, visited, path, target)) {
+            if (this._hamiltonianDFS(grid, size, next.row, next.col, visited, path, target, state)) {
                 return true;
             }
         }

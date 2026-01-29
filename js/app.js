@@ -8,21 +8,24 @@ import { GameController } from './game/GameController.js';
  * Initialize the game when DOM is ready
  */
 async function init() {
-    console.log('🌟 Amazeing - Initializing...');
+    console.log('Amazeing - Initializing...');
 
     try {
         // Create game controller
+        console.log('Creating game controller...');
         const game = new GameController();
 
         // Initialize the game
+        console.log('Initializing game...');
         await game.initialize();
 
         // Make game accessible for debugging
         window.amazeing = game;
 
-        console.log('🌟 Amazeing - Ready!');
+        console.log('Amazeing - Ready!');
     } catch (error) {
         console.error('Failed to initialize Amazeing:', error);
+        console.error('Error stack:', error.stack);
 
         // Show error to user
         document.body.innerHTML = `

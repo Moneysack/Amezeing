@@ -5,6 +5,7 @@
 import { Storage } from '../utils/Storage.js';
 import { STORAGE_KEYS } from '../utils/Constants.js';
 import { dateHash, getTodayString } from '../utils/Helpers.js';
+import { LevelGenerator } from './LevelGenerator.js';
 
 /**
  * LevelManager - Handles level loading, progression, and storage
@@ -92,125 +93,31 @@ export class LevelManager {
     }
 
     /**
-     * Generate sample levels for a given grid size
+     * Generate sample levels for a given grid size using LevelGenerator
      * @param {number} size
      * @param {number} count
      * @returns {Array}
      */
     _generateSampleLevels(size, count) {
-        const themes = ['star-sky', 'galaxy', 'ship', 'rocket', 'heart', 'neon-city'];
         const levels = [];
+        const numPoints = size <= 6 ? 2 : (size <= 8 ? 4 : (size <= 10 ? 4 : 8));
+        const obstaclePercent = size <= 6 ? 0 : (size <= 8 ? 5 : (size <= 10 ? 8 : 10));
 
         for (let i = 0; i < count; i++) {
-            const theme = themes[i % themes.length];
-            const level = this._generateLevel(size, i + 1, theme);
-            levels.push(level);
+            const level = LevelGenerator.generate({
+                size: size,
+                numPoints: numPoints,
+                obstaclePercent: obstaclePercent
+            });
+
+            if (level) {
+                level.id = `pack-${size}-level-${i + 1}`;
+                level.name = `Level ${i + 1}`;
+                levels.push(level);
+            }
         }
 
         return levels;
-    }
-
-    /**
-     * Generate a single sample level
-     * @param {number} size - Grid size
-     * @param {number} levelNum - Level number
-     * @param {string} theme - Theme id
-     * @returns {Object}
-     */
-    _generateLevel(size, levelNum, theme) {
-        // Create a simple path that forms a pattern
-        const points = [];
-        const solution = [];
-        const artwork = Array.from({ length: size }, () => Array(size).fill(''));
-
-        // Generate a zigzag pattern
-        let pointNum = 1;
-        const numPoints = Math.min(4 + Math.floor(levelNum / 3), 8);
-
-        // Create points around the edges
-        const positions = [
-            { row: 0, col: 0 },
-            { row: 0, col: size - 1 },
-            { row: size - 1, col: size - 1 },
-            { row: size - 1, col: 0 },
-            { row: 0, col: Math.floor(size / 2) },
-            { row: Math.floor(size / 2), col: size - 1 },
-            { row: size - 1, col: Math.floor(size / 2) },
-            { row: Math.floor(size / 2), col: 0 }
-        ];
-
-        for (let i = 0; i < numPoints && i < positions.length; i++) {
-            points.push({
-                number: pointNum++,
-                row: positions[i].row,
-                col: positions[i].col
-            });
-        }
-
-        // Generate solution paths between consecutive points
-        for (let i = 0; i < points.length - 1; i++) {
-            const from = points[i];
-            const to = points[i + 1];
-            const path = this._generatePath(from, to, size);
-
-            solution.push({
-                from: from.number,
-                to: to.number,
-                path: path
-            });
-
-            // Fill artwork
-            const emojiMap = {
-                'star-sky': '🌟',
-                'galaxy': '🌌',
-                'ship': '🚢',
-                'rocket': '🚀',
-                'heart': '❤️',
-                'neon-city': '🔵'
-            };
-            const emoji = emojiMap[theme] || '🌟';
-            path.forEach(cell => {
-                artwork[cell.row][cell.col] = emoji;
-            });
-        }
-
-        return {
-            id: `level-${size}-${levelNum}`,
-            name: `Level ${levelNum}`,
-            size: size,
-            theme: theme,
-            difficulty: Math.ceil(levelNum / 5),
-            points: points,
-            solution: solution,
-            artwork: artwork
-        };
-    }
-
-    /**
-     * Generate a simple path between two points
-     * @param {Object} from - Start point {row, col}
-     * @param {Object} to - End point {row, col}
-     * @param {number} size - Grid size
-     * @returns {Array}
-     */
-    _generatePath(from, to, size) {
-        const path = [{ row: from.row, col: from.col }];
-
-        let currentRow = from.row;
-        let currentCol = from.col;
-
-        // Move horizontally first, then vertically
-        while (currentCol !== to.col) {
-            currentCol += currentCol < to.col ? 1 : -1;
-            path.push({ row: currentRow, col: currentCol });
-        }
-
-        while (currentRow !== to.row) {
-            currentRow += currentRow < to.row ? 1 : -1;
-            path.push({ row: currentRow, col: currentCol });
-        }
-
-        return path;
     }
 
     /**
