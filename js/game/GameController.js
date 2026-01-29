@@ -6,6 +6,7 @@ import { gameState } from './GameState.js';
 import { Grid } from './Grid.js';
 import { PathManager } from './PathManager.js';
 import { LevelManager } from './LevelManager.js';
+import { LevelGenerator } from './LevelGenerator.js';
 import { Renderer } from '../ui/Renderer.js';
 import { InputHandler } from '../ui/InputHandler.js';
 import { Timer } from '../features/Timer.js';
@@ -25,6 +26,8 @@ export class GameController {
         this.timer = null;
 
         this.isDaily = false;
+        this.isRandomMode = true;  // Start in random mode by default
+        this.currentDifficulty = 'easy';
 
         // Bind methods
         this._onDragStart = this._onDragStart.bind(this);
@@ -69,15 +72,12 @@ export class GameController {
             this.renderer.handleResize();
         }, 250));
 
-        // Load level packs
+        // Load level packs (for menu access)
         await this.levelManager.loadPacks();
         this.levelManager.loadSavedPosition();
 
-        // Load the current/first level
-        const level = this.levelManager.getCurrentLevel();
-        if (level) {
-            this.loadLevel(level);
-        }
+        // Start with a random level
+        this.generateRandomLevel();
     }
 
     /**
@@ -89,6 +89,19 @@ export class GameController {
         document.getElementById('undo-btn').addEventListener('click', () => this.undo());
         document.getElementById('hint-btn').addEventListener('click', () => this.showHint());
         document.getElementById('share-btn').addEventListener('click', () => this.share());
+
+        // Difficulty buttons
+        document.querySelectorAll('.difficulty-btn').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const difficulty = e.currentTarget.dataset.difficulty;
+                this.setDifficulty(difficulty);
+            });
+        });
+
+        // New random level button
+        document.getElementById('new-random-btn').addEventListener('click', () => {
+            this.generateRandomLevel();
+        });
 
         // Menu button
         document.getElementById('menu-btn').addEventListener('click', () => this._showModal('menu-modal'));
@@ -364,6 +377,12 @@ export class GameController {
      * Load next level
      */
     loadNextLevel() {
+        if (this.isRandomMode) {
+            // Generate a new random level
+            this.generateRandomLevel();
+            return;
+        }
+
         const level = this.levelManager.getNextLevel();
         if (level) {
             this.loadLevel(level);
@@ -374,11 +393,61 @@ export class GameController {
     }
 
     /**
+     * Set difficulty and generate new random level
+     * @param {string} difficulty - easy, medium, hard, expert
+     */
+    setDifficulty(difficulty) {
+        this.currentDifficulty = difficulty;
+        this.isRandomMode = true;
+
+        // Update active button
+        document.querySelectorAll('.difficulty-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.difficulty === difficulty);
+        });
+
+        // Generate new level with this difficulty
+        this.generateRandomLevel();
+    }
+
+    /**
+     * Generate and load a random level
+     */
+    generateRandomLevel() {
+        const presets = LevelGenerator.getPresets();
+        const preset = presets[this.currentDifficulty] || presets.easy;
+
+        const level = LevelGenerator.generate({
+            size: preset.size,
+            numPoints: preset.numPoints,
+            obstaclePercent: preset.obstaclePercent
+        });
+
+        if (level) {
+            this.isRandomMode = true;
+            this.loadLevel(level);
+        } else {
+            console.error('Failed to generate level');
+            // Try again with simpler settings
+            const simpleLevel = LevelGenerator.generate({
+                size: 6,
+                numPoints: 2,
+                obstaclePercent: 0
+            });
+            if (simpleLevel) {
+                this.loadLevel(simpleLevel);
+            }
+        }
+    }
+
+    /**
      * Load daily puzzle
      */
     loadDailyPuzzle() {
+        this.isRandomMode = false;
         const daily = this.levelManager.getDailyPuzzle();
         this.loadLevel(daily);
+        // Deselect difficulty buttons when playing daily
+        document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('active'));
     }
 
     /**
@@ -469,8 +538,11 @@ export class GameController {
             }
 
             btn.addEventListener('click', () => {
+                this.isRandomMode = false;
                 this.levelManager.setCurrentLevel(packIndex, levelIndex);
                 this.loadLevel(level);
+                // Deselect difficulty buttons when playing preset levels
+                document.querySelectorAll('.difficulty-btn').forEach(b => b.classList.remove('active'));
             });
 
             grid.appendChild(btn);

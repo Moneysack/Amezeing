@@ -664,3 +664,58 @@ body {
 .theme-preview {
     font-size: 2rem;
 }
+
+/* =============================================
+   DIFFICULTY OPTIONS
+   ============================================= */
+.difficulty-options {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 8px 0 12px;
+    flex-wrap: wrap;
+}
+
+.difficulty-btn {
+    padding: 8px 16px;
+    background: var(--btn-bg);
+    border: 2px solid transparent;
+    border-radius: 20px;
+    color: var(--text-primary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.difficulty-btn:hover {
+    background: var(--btn-hover);
+}
+
+.difficulty-btn.active {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-color: transparent;
+    color: white;
+}
+
+.new-random-btn {
+    padding: 8px 20px;
+    background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+    border: none;
+    border-radius: 20px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.new-random-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+}
+
+.new-random-btn:active {
+    transform: scale(0.98);
+}
