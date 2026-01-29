@@ -181,7 +181,7 @@ export class GameController {
     loadLevel(levelData) {
         // Create grid
         this.grid = new Grid(levelData.size);
-        this.grid.initializePoints(levelData.points);
+        this.grid.initializePoints(levelData.points, levelData.obstacles || []);
 
         // Create path manager
         this.pathManager = new PathManager(this.grid);
@@ -192,9 +192,9 @@ export class GameController {
         // Update theme
         this.setTheme(levelData.theme || 'star-sky', false);
 
-        // Initialize renderer
-        this.renderer.initialize(levelData.size, levelData.points);
-        this.renderer.renderPreview(levelData.artwork, levelData.size);
+        // Initialize renderer with obstacles
+        this.renderer.initialize(levelData.size, levelData.points, levelData.obstacles || []);
+        this.renderer.renderPreview(levelData);
         this.renderer.highlightCurrentPoint(1);
 
         // Update level name display

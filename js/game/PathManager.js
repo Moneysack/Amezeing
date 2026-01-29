@@ -91,6 +91,11 @@ export class PathManager {
             return { success: false, reason: 'invalid_cell' };
         }
 
+        // Check if cell is an obstacle
+        if (cell.isObstacle) {
+            return { success: false, reason: 'obstacle' };
+        }
+
         // Check if this is the target point
         const targetNumber = gameState.currentNumber + 1;
         if (cell.isPoint && cell.pointNumber === targetNumber) {

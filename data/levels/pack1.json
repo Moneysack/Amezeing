@@ -11,274 +11,281 @@
             "difficulty": 1,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 2},
-                {"number": 3, "row": 0, "col": 4},
-                {"number": 4, "row": 2, "col": 0},
-                {"number": 5, "row": 2, "col": 2},
-                {"number": 6, "row": 2, "col": 4},
-                {"number": 7, "row": 4, "col": 0},
-                {"number": 8, "row": 4, "col": 2},
-                {"number": 9, "row": 4, "col": 4},
-                {"number": 10, "row": 0, "col": 5},
-                {"number": 11, "row": 2, "col": 5},
-                {"number": 12, "row": 4, "col": 5},
-                {"number": 13, "row": 5, "col": 0},
-                {"number": 14, "row": 5, "col": 2},
-                {"number": 15, "row": 5, "col": 4},
-                {"number": 16, "row": 5, "col": 5},
-                {"number": 17, "row": 0, "col": 1},
-                {"number": 18, "row": 0, "col": 3}
+                {"number": 2, "row": 0, "col": 5},
+                {"number": 3, "row": 5, "col": 5},
+                {"number": 4, "row": 5, "col": 0}
+            ],
+            "obstacles": [
+                {"row": 2, "col": 2},
+                {"row": 2, "col": 3},
+                {"row": 3, "col": 2},
+                {"row": 3, "col": 3}
             ],
             "solution": [
-                {"from": 1, "to": 2, "path": [{"row": 0, "col": 0}, {"row": 1, "col": 0}, {"row": 1, "col": 1}, {"row": 1, "col": 2}, {"row": 0, "col": 2}]},
-                {"from": 2, "to": 3, "path": [{"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}]},
-                {"from": 3, "to": 4, "path": [{"row": 0, "col": 4}, {"row": 1, "col": 4}, {"row": 1, "col": 3}, {"row": 2, "col": 3}, {"row": 2, "col": 2}, {"row": 2, "col": 1}, {"row": 2, "col": 0}]},
-                {"from": 4, "to": 5, "path": [{"row": 2, "col": 0}, {"row": 3, "col": 0}, {"row": 3, "col": 1}, {"row": 3, "col": 2}, {"row": 2, "col": 2}]},
-                {"from": 5, "to": 6, "path": [{"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4}]},
-                {"from": 6, "to": 7, "path": [{"row": 2, "col": 4}, {"row": 3, "col": 4}, {"row": 3, "col": 3}, {"row": 4, "col": 3}, {"row": 4, "col": 2}, {"row": 4, "col": 1}, {"row": 4, "col": 0}]},
-                {"from": 7, "to": 8, "path": [{"row": 4, "col": 0}, {"row": 5, "col": 0}, {"row": 5, "col": 1}, {"row": 5, "col": 2}, {"row": 4, "col": 2}]},
-                {"from": 8, "to": 9, "path": [{"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4}]},
-                {"from": 9, "to": 10, "path": [{"row": 4, "col": 4}, {"row": 5, "col": 4}, {"row": 5, "col": 5}, {"row": 4, "col": 5}, {"row": 3, "col": 5}, {"row": 2, "col": 5}, {"row": 1, "col": 5}, {"row": 0, "col": 5}]}
-            ],
-            "artwork": [
-                ["🌟", "🌟", "🌟", "🌟", "🌟", "🌟"],
-                ["🌟", "🌟", "🌟", "🌟", "🌟", "🌟"],
-                ["🌟", "🌟", "🌟", "🌟", "🌟", "🌟"],
-                ["🌟", "🌟", "🌟", "🌟", "🌟", "🌟"],
-                ["🌟", "🌟", "🌟", "🌟", "🌟", "🌟"],
-                ["🌟", "🌟", "🌟", "🌟", "🌟", "🌟"]
+                {"from": 1, "to": 2, "path": [
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
+                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5}
+                ]},
+                {"from": 2, "to": 3, "path": [
+                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 1, "col": 4},
+                    {"row": 2, "col": 4}, {"row": 2, "col": 5}, {"row": 3, "col": 5},
+                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 5}, {"row": 5, "col": 5}
+                ]},
+                {"from": 3, "to": 4, "path": [
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3},
+                    {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
+                ]}
             ]
         },
         {
             "id": "p1-l2",
-            "name": "Galaxy Fill",
+            "name": "Spiral Path",
             "size": 6,
             "theme": "galaxy",
             "difficulty": 1,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 5, "col": 5},
-                {"number": 3, "row": 0, "col": 5},
-                {"number": 4, "row": 5, "col": 0},
-                {"number": 5, "row": 2, "col": 2},
-                {"number": 6, "row": 3, "col": 3},
-                {"number": 7, "row": 1, "col": 4},
-                {"number": 8, "row": 4, "col": 1}
+                {"number": 2, "row": 2, "col": 2},
+                {"number": 3, "row": 3, "col": 3},
+                {"number": 4, "row": 5, "col": 5}
+            ],
+            "obstacles": [
+                {"row": 1, "col": 1},
+                {"row": 4, "col": 4}
             ],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3},
-                    {"row": 1, "col": 3}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 1, "col": 0},
-                    {"row": 2, "col": 0}, {"row": 2, "col": 1}, {"row": 3, "col": 1}, {"row": 3, "col": 0},
-                    {"row": 4, "col": 0}, {"row": 5, "col": 0}, {"row": 5, "col": 1}, {"row": 5, "col": 2},
-                    {"row": 5, "col": 3}, {"row": 5, "col": 4}, {"row": 5, "col": 5}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
+                    {"row": 1, "col": 2}, {"row": 2, "col": 2}
+                ]},
+                {"from": 2, "to": 3, "path": [
+                    {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 3, "col": 3}
                 ]},
                 {"from": 3, "to": 4, "path": [
-                    {"row": 0, "col": 5}, {"row": 0, "col": 4}, {"row": 1, "col": 4}, {"row": 1, "col": 5},
-                    {"row": 2, "col": 5}, {"row": 2, "col": 4}, {"row": 2, "col": 3}, {"row": 3, "col": 3},
-                    {"row": 3, "col": 4}, {"row": 3, "col": 5}, {"row": 4, "col": 5}, {"row": 4, "col": 4},
-                    {"row": 4, "col": 3}, {"row": 4, "col": 2}, {"row": 3, "col": 2}, {"row": 2, "col": 2},
-                    {"row": 4, "col": 1}, {"row": 5, "col": 0}
-                ]},
-                {"from": 5, "to": 6, "path": [{"row": 2, "col": 2}, {"row": 3, "col": 2}, {"row": 3, "col": 3}]},
-                {"from": 7, "to": 8, "path": [{"row": 1, "col": 4}, {"row": 2, "col": 4}, {"row": 2, "col": 3}, {"row": 3, "col": 3}, {"row": 4, "col": 3}, {"row": 4, "col": 2}, {"row": 4, "col": 1}]}
-            ],
-            "artwork": [
-                ["🌌", "🌌", "🌌", "🌌", "🌌", "🌌"],
-                ["🌌", "🌌", "🌌", "🌌", "🌌", "🌌"],
-                ["🌌", "🌌", "🌌", "🌌", "🌌", "🌌"],
-                ["🌌", "🌌", "🌌", "🌌", "🌌", "🌌"],
-                ["🌌", "🌌", "🌌", "🌌", "🌌", "🌌"],
-                ["🌌", "🌌", "🌌", "🌌", "🌌", "🌌"]
+                    {"row": 3, "col": 3}, {"row": 3, "col": 4}, {"row": 3, "col": 5},
+                    {"row": 4, "col": 5}, {"row": 5, "col": 5}
+                ]}
             ]
         },
         {
             "id": "p1-l3",
-            "name": "Ship Voyage",
+            "name": "Twin Paths",
             "size": 6,
             "theme": "ship",
             "difficulty": 2,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 2, "col": 3},
+                {"number": 2, "row": 5, "col": 0},
                 {"number": 3, "row": 0, "col": 5},
-                {"number": 4, "row": 3, "col": 2},
-                {"number": 5, "row": 5, "col": 0},
-                {"number": 6, "row": 5, "col": 5},
-                {"number": 7, "row": 1, "col": 1},
-                {"number": 8, "row": 4, "col": 4}
+                {"number": 4, "row": 5, "col": 5}
+            ],
+            "obstacles": [
+                {"row": 2, "col": 2},
+                {"row": 3, "col": 3}
             ],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3},
-                    {"row": 1, "col": 3}, {"row": 1, "col": 2}, {"row": 2, "col": 2}, {"row": 2, "col": 3}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 1, "col": 1},
+                    {"row": 1, "col": 0}, {"row": 2, "col": 0}, {"row": 2, "col": 1},
+                    {"row": 3, "col": 1}, {"row": 3, "col": 0}, {"row": 4, "col": 0}, {"row": 5, "col": 0}
+                ]},
+                {"from": 2, "to": 3, "path": [
+                    {"row": 5, "col": 0}, {"row": 5, "col": 1}, {"row": 5, "col": 2},
+                    {"row": 4, "col": 2}, {"row": 4, "col": 1}, {"row": 3, "col": 2},
+                    {"row": 2, "col": 3}, {"row": 1, "col": 3}, {"row": 1, "col": 2},
+                    {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5}
                 ]},
                 {"from": 3, "to": 4, "path": [
-                    {"row": 0, "col": 5}, {"row": 0, "col": 4}, {"row": 1, "col": 4}, {"row": 1, "col": 5},
-                    {"row": 2, "col": 5}, {"row": 2, "col": 4}, {"row": 3, "col": 4}, {"row": 3, "col": 3},
-                    {"row": 3, "col": 2}
-                ]},
-                {"from": 5, "to": 6, "path": [
-                    {"row": 5, "col": 0}, {"row": 4, "col": 0}, {"row": 3, "col": 0}, {"row": 2, "col": 0},
-                    {"row": 2, "col": 1}, {"row": 3, "col": 1}, {"row": 4, "col": 1}, {"row": 4, "col": 2},
-                    {"row": 4, "col": 3}, {"row": 5, "col": 3}, {"row": 5, "col": 4}, {"row": 5, "col": 5}
-                ]},
-                {"from": 7, "to": 8, "path": [
-                    {"row": 1, "col": 1}, {"row": 1, "col": 0}, {"row": 5, "col": 0}, {"row": 5, "col": 1},
-                    {"row": 5, "col": 2}, {"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4}
+                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 1, "col": 4},
+                    {"row": 2, "col": 4}, {"row": 2, "col": 5}, {"row": 3, "col": 5},
+                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 3},
+                    {"row": 5, "col": 3}, {"row": 5, "col": 4}, {"row": 5, "col": 5}
                 ]}
-            ],
-            "artwork": [
-                ["🚢", "🚢", "🚢", "🚢", "🚢", "🚢"],
-                ["🚢", "🚢", "🚢", "🚢", "🚢", "🚢"],
-                ["🚢", "🚢", "🚢", "🚢", "🚢", "🚢"],
-                ["🚢", "🚢", "🚢", "🚢", "🚢", "🚢"],
-                ["🚢", "🚢", "🚢", "🚢", "🚢", "🚢"],
-                ["🚢", "🚢", "🚢", "🚢", "🚢", "🚢"]
             ]
         },
         {
             "id": "p1-l4",
-            "name": "Rocket Maze",
+            "name": "Cross Roads",
             "size": 6,
             "theme": "rocket",
             "difficulty": 2,
             "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 5, "col": 0},
-                {"number": 3, "row": 0, "col": 2},
-                {"number": 4, "row": 5, "col": 2},
-                {"number": 5, "row": 0, "col": 4},
-                {"number": 6, "row": 5, "col": 4},
-                {"number": 7, "row": 2, "col": 1},
-                {"number": 8, "row": 3, "col": 1},
-                {"number": 9, "row": 2, "col": 3},
-                {"number": 10, "row": 3, "col": 3},
-                {"number": 11, "row": 2, "col": 5},
-                {"number": 12, "row": 3, "col": 5}
+                {"number": 1, "row": 0, "col": 2},
+                {"number": 2, "row": 5, "col": 2},
+                {"number": 3, "row": 2, "col": 0},
+                {"number": 4, "row": 2, "col": 5},
+                {"number": 5, "row": 0, "col": 0},
+                {"number": 6, "row": 5, "col": 5}
+            ],
+            "obstacles": [
+                {"row": 2, "col": 2},
+                {"row": 3, "col": 3}
             ],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 1, "col": 0}, {"row": 2, "col": 0}, {"row": 3, "col": 0},
-                    {"row": 4, "col": 0}, {"row": 5, "col": 0}
+                    {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 1, "col": 3},
+                    {"row": 1, "col": 2}, {"row": 2, "col": 3}, {"row": 3, "col": 2},
+                    {"row": 4, "col": 2}, {"row": 5, "col": 2}
+                ]},
+                {"from": 2, "to": 3, "path": [
+                    {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 4, "col": 1},
+                    {"row": 4, "col": 0}, {"row": 3, "col": 0}, {"row": 3, "col": 1},
+                    {"row": 2, "col": 1}, {"row": 2, "col": 0}
                 ]},
                 {"from": 3, "to": 4, "path": [
-                    {"row": 0, "col": 2}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 0, "col": 1},
-                    {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 5, "col": 2}
+                    {"row": 2, "col": 0}, {"row": 1, "col": 0}, {"row": 1, "col": 1},
+                    {"row": 0, "col": 1}, {"row": 0, "col": 4}, {"row": 1, "col": 4},
+                    {"row": 1, "col": 5}, {"row": 2, "col": 5}
+                ]},
+                {"from": 4, "to": 5, "path": [
+                    {"row": 2, "col": 5}, {"row": 2, "col": 4}, {"row": 0, "col": 0}
                 ]},
                 {"from": 5, "to": 6, "path": [
-                    {"row": 0, "col": 4}, {"row": 1, "col": 4}, {"row": 1, "col": 3}, {"row": 0, "col": 3},
-                    {"row": 4, "col": 3}, {"row": 4, "col": 4}, {"row": 5, "col": 4}
-                ]},
-                {"from": 7, "to": 8, "path": [{"row": 2, "col": 1}, {"row": 3, "col": 1}]},
-                {"from": 9, "to": 10, "path": [{"row": 2, "col": 3}, {"row": 3, "col": 3}]},
-                {"from": 11, "to": 12, "path": [
-                    {"row": 2, "col": 5}, {"row": 1, "col": 5}, {"row": 0, "col": 5}, {"row": 4, "col": 5},
-                    {"row": 5, "col": 5}, {"row": 5, "col": 3}, {"row": 5, "col": 1}, {"row": 3, "col": 5}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 5}, {"row": 3, "col": 5},
+                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 3},
+                    {"row": 5, "col": 3}, {"row": 5, "col": 4}, {"row": 5, "col": 5}
                 ]}
-            ],
-            "artwork": [
-                ["🚀", "🚀", "🚀", "🚀", "🚀", "🚀"],
-                ["🚀", "🚀", "🚀", "🚀", "🚀", "🚀"],
-                ["🚀", "🚀", "🚀", "🚀", "🚀", "🚀"],
-                ["🚀", "🚀", "🚀", "🚀", "🚀", "🚀"],
-                ["🚀", "🚀", "🚀", "🚀", "🚀", "🚀"],
-                ["🚀", "🚀", "🚀", "🚀", "🚀", "🚀"]
             ]
         },
         {
             "id": "p1-l5",
-            "name": "Heart Pattern",
+            "name": "Blocked Center",
             "size": 6,
             "theme": "heart",
             "difficulty": 2,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 3},
-                {"number": 3, "row": 0, "col": 1},
-                {"number": 4, "row": 0, "col": 4},
-                {"number": 5, "row": 1, "col": 2},
-                {"number": 6, "row": 5, "col": 2},
-                {"number": 7, "row": 2, "col": 0},
-                {"number": 8, "row": 2, "col": 5},
-                {"number": 9, "row": 3, "col": 1},
-                {"number": 10, "row": 3, "col": 4},
-                {"number": 11, "row": 4, "col": 2},
-                {"number": 12, "row": 4, "col": 3}
+                {"number": 2, "row": 0, "col": 5},
+                {"number": 3, "row": 5, "col": 5},
+                {"number": 4, "row": 5, "col": 0}
+            ],
+            "obstacles": [
+                {"row": 2, "col": 1},
+                {"row": 2, "col": 2},
+                {"row": 2, "col": 3},
+                {"row": 2, "col": 4},
+                {"row": 3, "col": 1},
+                {"row": 3, "col": 4}
             ],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 1, "col": 0}, {"row": 1, "col": 1}, {"row": 2, "col": 1},
-                    {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4}, {"row": 1, "col": 4},
-                    {"row": 1, "col": 3}, {"row": 0, "col": 3}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
+                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5}
                 ]},
-                {"from": 3, "to": 4, "path": [{"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 4}]},
-                {"from": 5, "to": 6, "path": [
-                    {"row": 1, "col": 2}, {"row": 3, "col": 2}, {"row": 3, "col": 3}, {"row": 4, "col": 3},
-                    {"row": 4, "col": 4}, {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 5, "col": 2}
+                {"from": 2, "to": 3, "path": [
+                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 2, "col": 5},
+                    {"row": 3, "col": 5}, {"row": 4, "col": 5}, {"row": 5, "col": 5}
                 ]},
-                {"from": 7, "to": 8, "path": [
-                    {"row": 2, "col": 0}, {"row": 3, "col": 0}, {"row": 4, "col": 0}, {"row": 5, "col": 0},
-                    {"row": 5, "col": 1}, {"row": 4, "col": 1}, {"row": 5, "col": 5}, {"row": 4, "col": 5},
-                    {"row": 3, "col": 5}, {"row": 2, "col": 5}
-                ]},
-                {"from": 9, "to": 10, "path": [{"row": 3, "col": 1}, {"row": 3, "col": 2}, {"row": 3, "col": 3}, {"row": 3, "col": 4}]},
-                {"from": 11, "to": 12, "path": [{"row": 4, "col": 2}, {"row": 4, "col": 3}]}
-            ],
-            "artwork": [
-                ["❤️", "❤️", "❤️", "❤️", "❤️", "❤️"],
-                ["❤️", "❤️", "❤️", "❤️", "❤️", "❤️"],
-                ["❤️", "❤️", "❤️", "❤️", "❤️", "❤️"],
-                ["❤️", "❤️", "❤️", "❤️", "❤️", "❤️"],
-                ["❤️", "❤️", "❤️", "❤️", "❤️", "❤️"],
-                ["❤️", "❤️", "❤️", "❤️", "❤️", "❤️"]
+                {"from": 3, "to": 4, "path": [
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3},
+                    {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
+                ]}
             ]
         },
         {
             "id": "p1-l6",
-            "name": "Neon Complete",
+            "name": "Neon Maze",
             "size": 6,
             "theme": "neon-city",
             "difficulty": 3,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 5, "col": 5},
-                {"number": 3, "row": 0, "col": 5},
-                {"number": 4, "row": 5, "col": 0},
-                {"number": 5, "row": 1, "col": 2},
-                {"number": 6, "row": 4, "col": 3},
-                {"number": 7, "row": 2, "col": 1},
-                {"number": 8, "row": 3, "col": 4}
+                {"number": 2, "row": 2, "col": 4},
+                {"number": 3, "row": 4, "col": 0},
+                {"number": 4, "row": 5, "col": 5}
+            ],
+            "obstacles": [
+                {"row": 1, "col": 2},
+                {"row": 2, "col": 2},
+                {"row": 3, "col": 2},
+                {"row": 3, "col": 4}
             ],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 1, "col": 1}, {"row": 1, "col": 0},
-                    {"row": 2, "col": 0}, {"row": 3, "col": 0}, {"row": 3, "col": 1}, {"row": 3, "col": 2},
-                    {"row": 3, "col": 3}, {"row": 2, "col": 3}, {"row": 2, "col": 4}, {"row": 2, "col": 5},
-                    {"row": 3, "col": 5}, {"row": 4, "col": 5}, {"row": 5, "col": 5}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
+                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 1, "col": 4},
+                    {"row": 2, "col": 4}
+                ]},
+                {"from": 2, "to": 3, "path": [
+                    {"row": 2, "col": 4}, {"row": 2, "col": 3}, {"row": 1, "col": 3},
+                    {"row": 1, "col": 1}, {"row": 1, "col": 0}, {"row": 2, "col": 0},
+                    {"row": 2, "col": 1}, {"row": 3, "col": 1}, {"row": 3, "col": 0}, {"row": 4, "col": 0}
                 ]},
                 {"from": 3, "to": 4, "path": [
-                    {"row": 0, "col": 5}, {"row": 0, "col": 4}, {"row": 0, "col": 3}, {"row": 0, "col": 2},
-                    {"row": 1, "col": 2}, {"row": 1, "col": 3}, {"row": 1, "col": 4}, {"row": 1, "col": 5},
-                    {"row": 4, "col": 0}, {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 5, "col": 2},
-                    {"row": 5, "col": 1}, {"row": 5, "col": 0}
-                ]},
-                {"from": 5, "to": 6, "path": [
-                    {"row": 1, "col": 2}, {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 3, "col": 3},
-                    {"row": 4, "col": 3}
-                ]},
-                {"from": 7, "to": 8, "path": [
-                    {"row": 2, "col": 1}, {"row": 2, "col": 0}, {"row": 5, "col": 3}, {"row": 5, "col": 4},
-                    {"row": 4, "col": 4}, {"row": 3, "col": 4}
+                    {"row": 4, "col": 0}, {"row": 5, "col": 0}, {"row": 5, "col": 1},
+                    {"row": 5, "col": 2}, {"row": 4, "col": 2}, {"row": 4, "col": 1},
+                    {"row": 3, "col": 3}, {"row": 4, "col": 3}, {"row": 4, "col": 4},
+                    {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 4, "col": 5},
+                    {"row": 3, "col": 5}, {"row": 2, "col": 5}, {"row": 1, "col": 5},
+                    {"row": 0, "col": 5}, {"row": 5, "col": 5}
                 ]}
+            ]
+        },
+        {
+            "id": "p1-l7",
+            "name": "Simple Snake",
+            "size": 6,
+            "theme": "star-sky",
+            "difficulty": 1,
+            "points": [
+                {"number": 1, "row": 0, "col": 0},
+                {"number": 2, "row": 5, "col": 5}
             ],
-            "artwork": [
-                ["🔵", "🔵", "🔵", "🔵", "🔵", "🔵"],
-                ["🔵", "🔵", "🟣", "🟣", "🟣", "🟣"],
-                ["🔵", "🟡", "🟣", "🔵", "🔵", "🔵"],
-                ["🔵", "🔵", "🔵", "🔵", "🟡", "🔵"],
-                ["🟣", "🟣", "🟣", "🟣", "🔵", "🔵"],
-                ["🟣", "🟣", "🟣", "🟣", "🔵", "🔵"]
+            "obstacles": [
+                {"row": 1, "col": 1},
+                {"row": 1, "col": 3},
+                {"row": 3, "col": 2},
+                {"row": 3, "col": 4},
+                {"row": 4, "col": 1}
+            ],
+            "solution": [
+                {"from": 1, "to": 2, "path": [
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
+                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5},
+                    {"row": 1, "col": 5}, {"row": 1, "col": 4}, {"row": 1, "col": 2},
+                    {"row": 1, "col": 0}, {"row": 2, "col": 0}, {"row": 2, "col": 1},
+                    {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4},
+                    {"row": 2, "col": 5}, {"row": 3, "col": 5}, {"row": 3, "col": 3},
+                    {"row": 3, "col": 1}, {"row": 3, "col": 0}, {"row": 4, "col": 0},
+                    {"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4},
+                    {"row": 4, "col": 5}, {"row": 5, "col": 5}
+                ]}
+            ]
+        },
+        {
+            "id": "p1-l8",
+            "name": "Galaxy Swirl",
+            "size": 6,
+            "theme": "galaxy",
+            "difficulty": 2,
+            "points": [
+                {"number": 1, "row": 0, "col": 0},
+                {"number": 2, "row": 2, "col": 2},
+                {"number": 3, "row": 0, "col": 5},
+                {"number": 4, "row": 5, "col": 0}
+            ],
+            "obstacles": [
+                {"row": 3, "col": 3}
+            ],
+            "solution": [
+                {"from": 1, "to": 2, "path": [
+                    {"row": 0, "col": 0}, {"row": 1, "col": 0}, {"row": 1, "col": 1},
+                    {"row": 2, "col": 1}, {"row": 2, "col": 2}
+                ]},
+                {"from": 2, "to": 3, "path": [
+                    {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 1, "col": 3},
+                    {"row": 1, "col": 2}, {"row": 0, "col": 2}, {"row": 0, "col": 3},
+                    {"row": 0, "col": 4}, {"row": 0, "col": 5}
+                ]},
+                {"from": 3, "to": 4, "path": [
+                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 1, "col": 4},
+                    {"row": 2, "col": 4}, {"row": 2, "col": 5}, {"row": 3, "col": 5},
+                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 5},
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3},
+                    {"row": 4, "col": 3}, {"row": 4, "col": 2}, {"row": 5, "col": 2},
+                    {"row": 5, "col": 1}, {"row": 4, "col": 1}, {"row": 4, "col": 0},
+                    {"row": 5, "col": 0}
+                ]}
             ]
         }
     ]

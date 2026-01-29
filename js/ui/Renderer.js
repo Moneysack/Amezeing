@@ -7,6 +7,7 @@ import { gameState } from '../game/GameState.js';
 
 /**
  * Renderer - Handles all visual rendering of the game
+ * Now uses colored lines instead of emojis, supports obstacles
  */
 export class Renderer {
     /**
@@ -29,18 +30,25 @@ export class Renderer {
 
         // Points overlay
         this.pointsOverlay = document.getElementById('points-overlay');
+
+        // Track obstacles
+        this.obstacles = new Set();
     }
 
     /**
      * Initialize the grid for a new level
      * @param {number} gridSize
      * @param {Array} points - Array of {number, row, col}
+     * @param {Array} obstacles - Array of {row, col} for blocked cells
      */
-    initialize(gridSize, points) {
+    initialize(gridSize, points, obstacles = []) {
         this.gridSize = gridSize;
         this.gridContainer.dataset.size = gridSize;
         this.pointsOverlay.dataset.size = gridSize;
         this.gridContainer.innerHTML = '';
+
+        // Store obstacles
+        this.obstacles = new Set(obstacles.map(o => `${o.row},${o.col}`));
 
         // Create grid cells
         for (let row = 0; row < gridSize; row++) {
@@ -49,6 +57,12 @@ export class Renderer {
                 cell.className = 'cell';
                 cell.dataset.row = row;
                 cell.dataset.col = col;
+
+                // Mark obstacles
+                if (this.obstacles.has(`${row},${col}`)) {
+                    cell.classList.add('obstacle');
+                }
+
                 this.gridContainer.appendChild(cell);
             }
         }
@@ -112,6 +126,12 @@ export class Renderer {
      */
     clearPaths() {
         this.ctx.clearRect(0, 0, this.pathCanvas.width, this.pathCanvas.height);
+
+        // Also clear cell highlights
+        this.gridContainer.querySelectorAll('.cell.path-cell').forEach(cell => {
+            cell.classList.remove('path-cell');
+            cell.style.backgroundColor = '';
+        });
     }
 
     /**
@@ -123,49 +143,105 @@ export class Renderer {
         const theme = THEMES[gameState.theme] || THEMES['star-sky'];
 
         // Render completed paths
-        gameState.paths.forEach(path => {
-            this._renderPath(path, theme, false);
+        gameState.paths.forEach((path, index) => {
+            this._renderPath(path, theme, false, index);
         });
 
         // Render current drawing path
         if (gameState.currentPath) {
-            this._renderPath(gameState.currentPath, theme, true);
+            this._renderPath(gameState.currentPath, theme, true, gameState.paths.length);
         }
     }
 
     /**
-     * Render a single path
+     * Render a single path as colored line
      * @param {Object} path - Path object with cells array
      * @param {Object} theme - Theme configuration
      * @param {boolean} isDrawing - Is this the currently drawing path
+     * @param {number} pathIndex - Index for color variation
      */
-    _renderPath(path, theme, isDrawing) {
+    _renderPath(path, theme, isDrawing, pathIndex) {
         if (!path.cells || path.cells.length < 1) return;
 
-        const emoji = theme.emojis[(path.number - 1) % theme.emojis.length];
-        const fontSize = this.cellSize * 0.55;
+        // Get line color based on theme
+        const lineColor = this._getPathColor(theme, pathIndex);
+        const lineWidth = this.cellSize * 0.4;
 
-        this.ctx.font = `${fontSize}px "Segoe UI Emoji", "Apple Color Emoji", "Noto Color Emoji", sans-serif`;
-        this.ctx.textAlign = 'center';
-        this.ctx.textBaseline = 'middle';
+        this.ctx.strokeStyle = lineColor;
+        this.ctx.lineWidth = lineWidth;
+        this.ctx.lineCap = 'round';
+        this.ctx.lineJoin = 'round';
+        this.ctx.globalAlpha = isDrawing ? 0.7 : 1;
 
-        // Set opacity for drawing path
-        this.ctx.globalAlpha = isDrawing ? 0.85 : 1;
+        // Draw the line connecting cell centers
+        if (path.cells.length >= 2) {
+            this.ctx.beginPath();
 
-        // Draw emoji at each cell (skip first and last which have numbers)
-        path.cells.forEach((cell, index) => {
-            // Skip start and end points (they show numbers)
-            const isStartOrEnd = index === 0 || (index === path.cells.length - 1 && !isDrawing);
+            const firstCell = path.cells[0];
+            const startX = this.gridPadding + firstCell.col * (this.cellSize + this.gridGap) + this.cellSize / 2;
+            const startY = this.gridPadding + firstCell.row * (this.cellSize + this.gridGap) + this.cellSize / 2;
+            this.ctx.moveTo(startX, startY);
 
-            if (!isStartOrEnd) {
+            for (let i = 1; i < path.cells.length; i++) {
+                const cell = path.cells[i];
                 const x = this.gridPadding + cell.col * (this.cellSize + this.gridGap) + this.cellSize / 2;
                 const y = this.gridPadding + cell.row * (this.cellSize + this.gridGap) + this.cellSize / 2;
+                this.ctx.lineTo(x, y);
+            }
 
-                this.ctx.fillText(emoji, x, y);
+            this.ctx.stroke();
+        }
+
+        // Also fill the cells with a lighter version of the color
+        path.cells.forEach((cell, index) => {
+            const cellEl = this.gridContainer.querySelector(
+                `.cell[data-row="${cell.row}"][data-col="${cell.col}"]`
+            );
+            if (cellEl && !cellEl.classList.contains('obstacle')) {
+                cellEl.classList.add('path-cell');
+                cellEl.style.backgroundColor = this._getLightColor(lineColor, isDrawing ? 0.3 : 0.4);
             }
         });
 
         this.ctx.globalAlpha = 1;
+    }
+
+    /**
+     * Get color for a path based on theme and index
+     * @param {Object} theme
+     * @param {number} index
+     * @returns {string}
+     */
+    _getPathColor(theme, index) {
+        // Color palette for paths
+        const colors = [
+            '#4CAF50', // Green
+            '#2196F3', // Blue
+            '#FF9800', // Orange
+            '#9C27B0', // Purple
+            '#F44336', // Red
+            '#00BCD4', // Cyan
+            '#FFEB3B', // Yellow
+            '#E91E63', // Pink
+            '#3F51B5', // Indigo
+            '#009688', // Teal
+        ];
+
+        return colors[index % colors.length];
+    }
+
+    /**
+     * Get a lighter version of a color
+     * @param {string} color - Hex color
+     * @param {number} alpha - Alpha value
+     * @returns {string}
+     */
+    _getLightColor(color, alpha) {
+        // Convert hex to rgba
+        const r = parseInt(color.slice(1, 3), 16);
+        const g = parseInt(color.slice(3, 5), 16);
+        const b = parseInt(color.slice(5, 7), 16);
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     }
 
     /**
@@ -248,29 +324,46 @@ export class Renderer {
     }
 
     /**
-     * Render the pattern preview
-     * @param {Array<Array<string>>} artwork - 2D array of emojis
-     * @param {number} size - Grid size
+     * Render the pattern preview (simplified for line-based version)
+     * @param {Object} levelData
      */
-    renderPreview(artwork, size) {
-        if (!artwork) return;
+    renderPreview(levelData) {
+        if (!levelData) return;
 
+        const size = levelData.size;
         const pixelSize = 64 / size;
-        this.previewCtx.clearRect(0, 0, 64, 64);
-        this.previewCtx.font = `${pixelSize * 0.8}px "Segoe UI Emoji", "Apple Color Emoji", sans-serif`;
-        this.previewCtx.textAlign = 'center';
-        this.previewCtx.textBaseline = 'middle';
 
-        artwork.forEach((row, rowIndex) => {
-            row.forEach((emoji, colIndex) => {
-                if (emoji) {
-                    this.previewCtx.fillText(
-                        emoji,
-                        colIndex * pixelSize + pixelSize / 2,
-                        rowIndex * pixelSize + pixelSize / 2
-                    );
-                }
+        this.previewCtx.clearRect(0, 0, 64, 64);
+
+        // Draw a simple grid preview
+        this.previewCtx.fillStyle = 'rgba(255, 255, 255, 0.1)';
+        this.previewCtx.fillRect(0, 0, 64, 64);
+
+        // Draw obstacles as dark cells
+        if (levelData.obstacles) {
+            this.previewCtx.fillStyle = 'rgba(0, 0, 0, 0.6)';
+            levelData.obstacles.forEach(obs => {
+                this.previewCtx.fillRect(
+                    obs.col * pixelSize + 1,
+                    obs.row * pixelSize + 1,
+                    pixelSize - 2,
+                    pixelSize - 2
+                );
             });
+        }
+
+        // Draw points as dots
+        this.previewCtx.fillStyle = '#ffd700';
+        levelData.points.forEach(point => {
+            this.previewCtx.beginPath();
+            this.previewCtx.arc(
+                point.col * pixelSize + pixelSize / 2,
+                point.row * pixelSize + pixelSize / 2,
+                pixelSize / 4,
+                0,
+                Math.PI * 2
+            );
+            this.previewCtx.fill();
         });
     }
 
@@ -281,28 +374,40 @@ export class Renderer {
     renderFinalArtwork(size) {
         const artworkContainer = document.getElementById('final-artwork');
         artworkContainer.innerHTML = '';
-        artworkContainer.style.gridTemplateColumns = `repeat(${size}, 1.5rem)`;
+        artworkContainer.style.gridTemplateColumns = `repeat(${size}, 1.2rem)`;
+        artworkContainer.style.gap = '1px';
 
-        const theme = THEMES[gameState.theme] || THEMES['star-sky'];
-
-        // Build grid of emojis from paths
+        // Build grid from paths
         const grid = Array.from({ length: size }, () =>
-            Array(size).fill('')
+            Array(size).fill(null)
         );
 
-        gameState.paths.forEach(path => {
-            const emoji = theme.emojis[(path.number - 1) % theme.emojis.length];
+        gameState.paths.forEach((path, pathIndex) => {
+            const color = this._getPathColor(THEMES[gameState.theme], pathIndex);
             path.cells.forEach(cell => {
-                grid[cell.row][cell.col] = emoji;
+                grid[cell.row][cell.col] = color;
             });
         });
 
         // Render
-        grid.forEach(row => {
-            row.forEach(emoji => {
+        grid.forEach((row, rowIndex) => {
+            row.forEach((color, colIndex) => {
                 const span = document.createElement('span');
-                span.textContent = emoji || ' ';
                 span.className = 'artwork-cell';
+
+                if (this.obstacles.has(`${rowIndex},${colIndex}`)) {
+                    span.style.backgroundColor = '#333';
+                } else if (color) {
+                    span.style.backgroundColor = color;
+                } else {
+                    span.style.backgroundColor = 'rgba(255,255,255,0.1)';
+                }
+
+                span.style.width = '1.2rem';
+                span.style.height = '1.2rem';
+                span.style.display = 'inline-block';
+                span.style.borderRadius = '2px';
+
                 artworkContainer.appendChild(span);
             });
         });
@@ -317,7 +422,7 @@ export class Renderer {
         const indicator = document.getElementById('theme-indicator');
 
         if (indicator) {
-            indicator.querySelector('.theme-emoji').textContent = theme.emojis[0];
+            indicator.querySelector('.theme-emoji').textContent = '🎯';
             indicator.querySelector('.theme-name').textContent = theme.name;
         }
     }

@@ -16,6 +16,7 @@ export class Grid {
         this.size = size;
         this.cells = this._createGrid(size);
         this.points = new Map(); // Map of "row,col" -> point number
+        this.obstacles = new Set(); // Set of "row,col" for blocked cells
     }
 
     /**
@@ -31,7 +32,8 @@ export class Grid {
                 occupied: false,
                 pathNumber: null,
                 isPoint: false,
-                pointNumber: null
+                pointNumber: null,
+                isObstacle: false
             }))
         );
     }
@@ -65,7 +67,31 @@ export class Grid {
      */
     isCellAvailable(row, col) {
         const cell = this.getCell(row, col);
-        return cell && !cell.occupied;
+        return cell && !cell.occupied && !cell.isObstacle;
+    }
+
+    /**
+     * Check if a cell is an obstacle
+     * @param {number} row
+     * @param {number} col
+     * @returns {boolean}
+     */
+    isObstacle(row, col) {
+        const cell = this.getCell(row, col);
+        return cell ? cell.isObstacle : false;
+    }
+
+    /**
+     * Set a cell as an obstacle
+     * @param {number} row
+     * @param {number} col
+     */
+    setObstacle(row, col) {
+        const cell = this.getCell(row, col);
+        if (cell) {
+            cell.isObstacle = true;
+            this.obstacles.add(posKey(row, col));
+        }
     }
 
     /**
@@ -181,11 +207,18 @@ export class Grid {
     /**
      * Initialize grid with points from level data
      * @param {Array<{number: number, row: number, col: number}>} points
+     * @param {Array<{row: number, col: number}>} obstacles - Optional obstacles
      */
-    initializePoints(points) {
+    initializePoints(points, obstacles = []) {
         // Reset grid
         this.cells = this._createGrid(this.size);
         this.points.clear();
+        this.obstacles.clear();
+
+        // Set up obstacles first
+        obstacles.forEach(o => {
+            this.setObstacle(o.row, o.col);
+        });
 
         // Set up points
         points.forEach(p => {

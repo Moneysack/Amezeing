@@ -271,6 +271,17 @@ body {
     background: var(--hover-bg);
 }
 
+/* Obstacle cells */
+.cell.obstacle {
+    background: rgba(40, 40, 40, 0.9);
+    border-color: rgba(60, 60, 60, 0.8);
+    cursor: not-allowed;
+}
+
+.cell.obstacle:hover {
+    background: rgba(40, 40, 40, 0.9);
+}
+
 /* Path Canvas Overlay */
 .path-canvas {
     position: absolute;

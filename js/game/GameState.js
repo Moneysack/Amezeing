@@ -21,6 +21,7 @@ class GameState {
 
             // Grid state - which cells are occupied
             occupiedCells: new Set(), // Set of "row,col" strings
+            obstacles: new Set(), // Set of "row,col" strings for blocked cells
 
             // Completed paths
             paths: [], // Array of path objects: {number, cells: [{row, col}]}
@@ -77,6 +78,7 @@ class GameState {
     get elapsedTime() { return this._state.elapsedTime; }
     get hintsUsed() { return this._state.hintsUsed; }
     get history() { return this._state.history; }
+    get obstacles() { return this._state.obstacles; }
 
     // =========================================
     // Setters with change notification
@@ -127,6 +129,11 @@ class GameState {
         this._state.theme = levelData.theme || 'star-sky';
         this._state.points = [...levelData.points];
         this._state.totalPoints = levelData.points.length;
+
+        // Store obstacles
+        this._state.obstacles = new Set(
+            (levelData.obstacles || []).map(o => `${o.row},${o.col}`)
+        );
 
         // Reset game state
         this.reset();
@@ -258,14 +265,16 @@ class GameState {
 
     /**
      * Check if level is complete
-     * Level is complete when ALL cells are filled with paths
+     * Level is complete when ALL non-obstacle cells are filled with paths
      */
     _checkCompletion() {
         const totalCells = this._state.gridSize * this._state.gridSize;
+        const obstacleCount = this._state.obstacles.size;
+        const fillableCells = totalCells - obstacleCount;
         const filledCells = this._state.occupiedCells.size;
 
-        // Level is complete when all cells are filled
-        if (filledCells === totalCells) {
+        // Level is complete when all fillable cells are filled
+        if (filledCells === fillableCells) {
             this._state.isComplete = true;
             this._state.gameState = GAME_STATES.COMPLETED;
             this._notify('levelComplete');
@@ -278,8 +287,10 @@ class GameState {
      */
     getProgress() {
         const totalCells = this._state.gridSize * this._state.gridSize;
+        const obstacleCount = this._state.obstacles.size;
+        const fillableCells = totalCells - obstacleCount;
         const filledCells = this._state.occupiedCells.size;
-        return Math.round((filledCells / totalCells) * 100);
+        return Math.round((filledCells / fillableCells) * 100);
     }
 
     /**
@@ -288,7 +299,19 @@ class GameState {
      */
     getRemainingCells() {
         const totalCells = this._state.gridSize * this._state.gridSize;
-        return totalCells - this._state.occupiedCells.size;
+        const obstacleCount = this._state.obstacles.size;
+        const fillableCells = totalCells - obstacleCount;
+        return fillableCells - this._state.occupiedCells.size;
+    }
+
+    /**
+     * Check if a cell is an obstacle
+     * @param {number} row
+     * @param {number} col
+     * @returns {boolean}
+     */
+    isObstacle(row, col) {
+        return this._state.obstacles.has(`${row},${col}`);
     }
 
     // =========================================
