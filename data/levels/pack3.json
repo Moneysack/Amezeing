@@ -5,84 +5,47 @@
     "levels": [
         {
             "id": "p3-l1",
-            "name": "Grand Grid",
+            "name": "Grand Snake",
             "size": 10,
             "theme": "star-sky",
             "difficulty": 3,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 9},
-                {"number": 3, "row": 9, "col": 9},
-                {"number": 4, "row": 9, "col": 0}
+                {"number": 2, "row": 9, "col": 0}
             ],
-            "obstacles": [
-                {"row": 4, "col": 4},
-                {"row": 4, "col": 5},
-                {"row": 5, "col": 4},
-                {"row": 5, "col": 5}
-            ],
+            "obstacles": [],
             "solution": []
         },
         {
             "id": "p3-l2",
-            "name": "Galaxy Maze",
+            "name": "Big Center",
             "size": 10,
             "theme": "galaxy",
             "difficulty": 3,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 9},
-                {"number": 3, "row": 9, "col": 0},
-                {"number": 4, "row": 9, "col": 9}
+                {"number": 2, "row": 9, "col": 0}
             ],
             "obstacles": [
-                {"row": 2, "col": 2},
-                {"row": 2, "col": 7},
-                {"row": 7, "col": 2},
-                {"row": 7, "col": 7},
                 {"row": 4, "col": 4},
+                {"row": 4, "col": 5},
+                {"row": 5, "col": 4},
                 {"row": 5, "col": 5}
             ],
             "solution": []
         },
         {
             "id": "p3-l3",
-            "name": "Ocean Voyage",
+            "name": "Three Parts",
             "size": 10,
             "theme": "ship",
             "difficulty": 3,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
                 {"number": 2, "row": 4, "col": 9},
-                {"number": 3, "row": 5, "col": 0},
-                {"number": 4, "row": 9, "col": 9}
+                {"number": 3, "row": 9, "col": 0}
             ],
-            "obstacles": [
-                {"row": 4, "col": 4},
-                {"row": 4, "col": 5},
-                {"row": 5, "col": 4},
-                {"row": 5, "col": 5}
-            ],
-            "solution": []
-        },
-        {
-            "id": "p3-l4",
-            "name": "Rocket Flight",
-            "size": 10,
-            "theme": "rocket",
-            "difficulty": 4,
-            "points": [
-                {"number": 1, "row": 0, "col": 4},
-                {"number": 2, "row": 0, "col": 5},
-                {"number": 3, "row": 9, "col": 4},
-                {"number": 4, "row": 9, "col": 5}
-            ],
-            "obstacles": [
-                {"row": 4, "col": 0},
-                {"row": 4, "col": 9},
-                {"row": 5, "col": 0},
-                {"row": 5, "col": 9}
-            ],
+            "obstacles": [],
             "solution": []
         }
     ]

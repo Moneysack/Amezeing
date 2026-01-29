@@ -5,75 +5,26 @@
     "levels": [
         {
             "id": "p2-l1",
-            "name": "Bigger Grid",
+            "name": "Big Snake",
             "size": 8,
             "theme": "star-sky",
             "difficulty": 2,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 7},
-                {"number": 3, "row": 7, "col": 7},
-                {"number": 4, "row": 7, "col": 0}
+                {"number": 2, "row": 7, "col": 0}
             ],
-            "obstacles": [
-                {"row": 3, "col": 3},
-                {"row": 3, "col": 4},
-                {"row": 4, "col": 3},
-                {"row": 4, "col": 4}
-            ],
+            "obstacles": [],
             "solution": []
         },
         {
             "id": "p2-l2",
-            "name": "Winding Path",
+            "name": "Center Hole",
             "size": 8,
             "theme": "galaxy",
             "difficulty": 2,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 7, "col": 7}
-            ],
-            "obstacles": [
-                {"row": 1, "col": 1},
-                {"row": 2, "col": 3},
-                {"row": 3, "col": 5},
-                {"row": 4, "col": 2},
-                {"row": 5, "col": 4},
-                {"row": 6, "col": 6}
-            ],
-            "solution": []
-        },
-        {
-            "id": "p2-l3",
-            "name": "Four Corners",
-            "size": 8,
-            "theme": "ship",
-            "difficulty": 3,
-            "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 7},
-                {"number": 3, "row": 7, "col": 7},
-                {"number": 4, "row": 7, "col": 0}
-            ],
-            "obstacles": [
-                {"row": 2, "col": 2},
-                {"row": 2, "col": 5},
-                {"row": 5, "col": 2},
-                {"row": 5, "col": 5}
-            ],
-            "solution": []
-        },
-        {
-            "id": "p2-l4",
-            "name": "Center Blocked",
-            "size": 8,
-            "theme": "rocket",
-            "difficulty": 3,
-            "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 3, "col": 7},
-                {"number": 3, "row": 4, "col": 0},
-                {"number": 4, "row": 7, "col": 7}
+                {"number": 2, "row": 7, "col": 0}
             ],
             "obstacles": [
                 {"row": 3, "col": 3},
@@ -84,40 +35,34 @@
             "solution": []
         },
         {
-            "id": "p2-l5",
-            "name": "Heart Path",
+            "id": "p2-l3",
+            "name": "Two Parts",
             "size": 8,
-            "theme": "heart",
+            "theme": "ship",
+            "difficulty": 2,
+            "points": [
+                {"number": 1, "row": 0, "col": 0},
+                {"number": 2, "row": 3, "col": 7},
+                {"number": 3, "row": 7, "col": 0}
+            ],
+            "obstacles": [],
+            "solution": []
+        },
+        {
+            "id": "p2-l4",
+            "name": "Four Corners",
+            "size": 8,
+            "theme": "rocket",
             "difficulty": 3,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
                 {"number": 2, "row": 0, "col": 7},
-                {"number": 3, "row": 7, "col": 3},
-                {"number": 4, "row": 7, "col": 4}
+                {"number": 3, "row": 7, "col": 7},
+                {"number": 4, "row": 7, "col": 0}
             ],
             "obstacles": [
-                {"row": 0, "col": 3},
-                {"row": 0, "col": 4},
-                {"row": 7, "col": 0},
-                {"row": 7, "col": 7}
-            ],
-            "solution": []
-        },
-        {
-            "id": "p2-l6",
-            "name": "Neon Grid",
-            "size": 8,
-            "theme": "neon-city",
-            "difficulty": 3,
-            "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 7, "col": 7}
-            ],
-            "obstacles": [
-                {"row": 2, "col": 2},
-                {"row": 2, "col": 5},
-                {"row": 5, "col": 2},
-                {"row": 5, "col": 5}
+                {"row": 3, "col": 3},
+                {"row": 4, "col": 4}
             ],
             "solution": []
         }

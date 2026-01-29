@@ -5,59 +5,26 @@
     "levels": [
         {
             "id": "p4-l1",
-            "name": "Star Matrix",
+            "name": "Ultimate Snake",
             "size": 12,
             "theme": "star-sky",
             "difficulty": 4,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 11},
-                {"number": 3, "row": 11, "col": 11},
-                {"number": 4, "row": 11, "col": 0}
+                {"number": 2, "row": 11, "col": 0}
             ],
-            "obstacles": [
-                {"row": 5, "col": 5},
-                {"row": 5, "col": 6},
-                {"row": 6, "col": 5},
-                {"row": 6, "col": 6}
-            ],
+            "obstacles": [],
             "solution": []
         },
         {
             "id": "p4-l2",
-            "name": "Galaxy Spiral",
+            "name": "Expert Center",
             "size": 12,
             "theme": "galaxy",
             "difficulty": 4,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 11},
-                {"number": 3, "row": 11, "col": 0},
-                {"number": 4, "row": 11, "col": 11}
-            ],
-            "obstacles": [
-                {"row": 3, "col": 3},
-                {"row": 3, "col": 8},
-                {"row": 8, "col": 3},
-                {"row": 8, "col": 8},
-                {"row": 5, "col": 5},
-                {"row": 5, "col": 6},
-                {"row": 6, "col": 5},
-                {"row": 6, "col": 6}
-            ],
-            "solution": []
-        },
-        {
-            "id": "p4-l3",
-            "name": "Neon Ultimate",
-            "size": 12,
-            "theme": "neon-city",
-            "difficulty": 4,
-            "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 5, "col": 11},
-                {"number": 3, "row": 6, "col": 0},
-                {"number": 4, "row": 11, "col": 11}
+                {"number": 2, "row": 11, "col": 0}
             ],
             "obstacles": [
                 {"row": 5, "col": 5},

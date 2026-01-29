@@ -5,153 +5,133 @@
     "levels": [
         {
             "id": "p1-l1",
-            "name": "First Steps",
+            "name": "Snake Path",
             "size": 6,
             "theme": "star-sky",
             "difficulty": 1,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 0, "col": 5},
-                {"number": 3, "row": 5, "col": 5},
-                {"number": 4, "row": 5, "col": 0}
+                {"number": 2, "row": 5, "col": 0}
             ],
-            "obstacles": [
-                {"row": 2, "col": 2},
-                {"row": 2, "col": 3},
-                {"row": 3, "col": 2},
-                {"row": 3, "col": 3}
-            ],
+            "obstacles": [],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
-                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5}
-                ]},
-                {"from": 2, "to": 3, "path": [
-                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 1, "col": 4},
-                    {"row": 2, "col": 4}, {"row": 2, "col": 5}, {"row": 3, "col": 5},
-                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 5}, {"row": 5, "col": 5}
-                ]},
-                {"from": 3, "to": 4, "path": [
-                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3},
-                    {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5},
+                    {"row": 1, "col": 5}, {"row": 1, "col": 4}, {"row": 1, "col": 3}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 1, "col": 0},
+                    {"row": 2, "col": 0}, {"row": 2, "col": 1}, {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4}, {"row": 2, "col": 5},
+                    {"row": 3, "col": 5}, {"row": 3, "col": 4}, {"row": 3, "col": 3}, {"row": 3, "col": 2}, {"row": 3, "col": 1}, {"row": 3, "col": 0},
+                    {"row": 4, "col": 0}, {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4}, {"row": 4, "col": 5},
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
                 ]}
             ]
         },
         {
             "id": "p1-l2",
-            "name": "Spiral Path",
+            "name": "Two Snakes",
             "size": 6,
             "theme": "galaxy",
             "difficulty": 1,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 2, "col": 2},
-                {"number": 3, "row": 3, "col": 3},
-                {"number": 4, "row": 5, "col": 5}
+                {"number": 2, "row": 2, "col": 5},
+                {"number": 3, "row": 5, "col": 0}
             ],
-            "obstacles": [
-                {"row": 1, "col": 1},
-                {"row": 4, "col": 4}
-            ],
+            "obstacles": [],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
-                    {"row": 1, "col": 2}, {"row": 2, "col": 2}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5},
+                    {"row": 1, "col": 5}, {"row": 1, "col": 4}, {"row": 1, "col": 3}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 1, "col": 0},
+                    {"row": 2, "col": 0}, {"row": 2, "col": 1}, {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4}, {"row": 2, "col": 5}
                 ]},
                 {"from": 2, "to": 3, "path": [
-                    {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 3, "col": 3}
-                ]},
-                {"from": 3, "to": 4, "path": [
-                    {"row": 3, "col": 3}, {"row": 3, "col": 4}, {"row": 3, "col": 5},
-                    {"row": 4, "col": 5}, {"row": 5, "col": 5}
+                    {"row": 2, "col": 5}, {"row": 3, "col": 5}, {"row": 3, "col": 4}, {"row": 3, "col": 3}, {"row": 3, "col": 2}, {"row": 3, "col": 1}, {"row": 3, "col": 0},
+                    {"row": 4, "col": 0}, {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4}, {"row": 4, "col": 5},
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
                 ]}
             ]
         },
         {
             "id": "p1-l3",
-            "name": "Twin Paths",
+            "name": "Corner Block",
             "size": 6,
             "theme": "ship",
-            "difficulty": 2,
+            "difficulty": 1,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 5, "col": 0},
-                {"number": 3, "row": 0, "col": 5},
-                {"number": 4, "row": 5, "col": 5}
+                {"number": 2, "row": 5, "col": 1}
             ],
             "obstacles": [
-                {"row": 2, "col": 2},
-                {"row": 3, "col": 3}
+                {"row": 5, "col": 0}
             ],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 1, "col": 1},
-                    {"row": 1, "col": 0}, {"row": 2, "col": 0}, {"row": 2, "col": 1},
-                    {"row": 3, "col": 1}, {"row": 3, "col": 0}, {"row": 4, "col": 0}, {"row": 5, "col": 0}
-                ]},
-                {"from": 2, "to": 3, "path": [
-                    {"row": 5, "col": 0}, {"row": 5, "col": 1}, {"row": 5, "col": 2},
-                    {"row": 4, "col": 2}, {"row": 4, "col": 1}, {"row": 3, "col": 2},
-                    {"row": 2, "col": 3}, {"row": 1, "col": 3}, {"row": 1, "col": 2},
-                    {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5}
-                ]},
-                {"from": 3, "to": 4, "path": [
-                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 1, "col": 4},
-                    {"row": 2, "col": 4}, {"row": 2, "col": 5}, {"row": 3, "col": 5},
-                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 3},
-                    {"row": 5, "col": 3}, {"row": 5, "col": 4}, {"row": 5, "col": 5}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5},
+                    {"row": 1, "col": 5}, {"row": 1, "col": 4}, {"row": 1, "col": 3}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 1, "col": 0},
+                    {"row": 2, "col": 0}, {"row": 2, "col": 1}, {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4}, {"row": 2, "col": 5},
+                    {"row": 3, "col": 5}, {"row": 3, "col": 4}, {"row": 3, "col": 3}, {"row": 3, "col": 2}, {"row": 3, "col": 1}, {"row": 3, "col": 0},
+                    {"row": 4, "col": 0}, {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4}, {"row": 4, "col": 5},
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 5, "col": 2}, {"row": 5, "col": 1}
                 ]}
             ]
         },
         {
             "id": "p1-l4",
-            "name": "Cross Roads",
+            "name": "Center Block",
             "size": 6,
             "theme": "rocket",
             "difficulty": 2,
             "points": [
-                {"number": 1, "row": 0, "col": 2},
-                {"number": 2, "row": 5, "col": 2},
-                {"number": 3, "row": 2, "col": 0},
-                {"number": 4, "row": 2, "col": 5},
-                {"number": 5, "row": 0, "col": 0},
-                {"number": 6, "row": 5, "col": 5}
+                {"number": 1, "row": 0, "col": 0},
+                {"number": 2, "row": 5, "col": 0}
             ],
             "obstacles": [
                 {"row": 2, "col": 2},
+                {"row": 2, "col": 3},
+                {"row": 3, "col": 2},
                 {"row": 3, "col": 3}
             ],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 1, "col": 3},
-                    {"row": 1, "col": 2}, {"row": 2, "col": 3}, {"row": 3, "col": 2},
-                    {"row": 4, "col": 2}, {"row": 5, "col": 2}
-                ]},
-                {"from": 2, "to": 3, "path": [
-                    {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 4, "col": 1},
-                    {"row": 4, "col": 0}, {"row": 3, "col": 0}, {"row": 3, "col": 1},
-                    {"row": 2, "col": 1}, {"row": 2, "col": 0}
-                ]},
-                {"from": 3, "to": 4, "path": [
-                    {"row": 2, "col": 0}, {"row": 1, "col": 0}, {"row": 1, "col": 1},
-                    {"row": 0, "col": 1}, {"row": 0, "col": 4}, {"row": 1, "col": 4},
-                    {"row": 1, "col": 5}, {"row": 2, "col": 5}
-                ]},
-                {"from": 4, "to": 5, "path": [
-                    {"row": 2, "col": 5}, {"row": 2, "col": 4}, {"row": 0, "col": 0}
-                ]},
-                {"from": 5, "to": 6, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 5}, {"row": 3, "col": 5},
-                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 3},
-                    {"row": 5, "col": 3}, {"row": 5, "col": 4}, {"row": 5, "col": 5}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5},
+                    {"row": 1, "col": 5}, {"row": 2, "col": 5}, {"row": 3, "col": 5}, {"row": 4, "col": 5}, {"row": 5, "col": 5},
+                    {"row": 5, "col": 4}, {"row": 4, "col": 4}, {"row": 3, "col": 4}, {"row": 2, "col": 4}, {"row": 1, "col": 4},
+                    {"row": 1, "col": 3}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 1, "col": 0}, {"row": 2, "col": 0}, {"row": 2, "col": 1},
+                    {"row": 3, "col": 1}, {"row": 3, "col": 0}, {"row": 4, "col": 0}, {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 4, "col": 3},
+                    {"row": 5, "col": 3}, {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
                 ]}
             ]
         },
         {
             "id": "p1-l5",
-            "name": "Blocked Center",
+            "name": "The Wall",
             "size": 6,
             "theme": "heart",
+            "difficulty": 2,
+            "points": [
+                {"number": 1, "row": 0, "col": 0},
+                {"number": 2, "row": 1, "col": 0}
+            ],
+            "obstacles": [
+                {"row": 1, "col": 3},
+                {"row": 2, "col": 3},
+                {"row": 3, "col": 3},
+                {"row": 4, "col": 3}
+            ],
+            "solution": [
+                {"from": 1, "to": 2, "path": [
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5},
+                    {"row": 1, "col": 5}, {"row": 1, "col": 4}, {"row": 2, "col": 4}, {"row": 2, "col": 5}, {"row": 3, "col": 5}, {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 5},
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0},
+                    {"row": 4, "col": 0}, {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 3, "col": 2}, {"row": 3, "col": 1}, {"row": 3, "col": 0},
+                    {"row": 2, "col": 0}, {"row": 2, "col": 1}, {"row": 2, "col": 2}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 1, "col": 0}
+                ]}
+            ]
+        },
+        {
+            "id": "p1-l6",
+            "name": "Three Paths",
+            "size": 6,
+            "theme": "neon-city",
             "difficulty": 2,
             "points": [
                 {"number": 1, "row": 0, "col": 0},
@@ -159,132 +139,20 @@
                 {"number": 3, "row": 5, "col": 5},
                 {"number": 4, "row": 5, "col": 0}
             ],
-            "obstacles": [
-                {"row": 2, "col": 1},
-                {"row": 2, "col": 2},
-                {"row": 2, "col": 3},
-                {"row": 2, "col": 4},
-                {"row": 3, "col": 1},
-                {"row": 3, "col": 4}
-            ],
+            "obstacles": [],
             "solution": [
                 {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
-                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5}
+                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2}, {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5}
                 ]},
                 {"from": 2, "to": 3, "path": [
-                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 2, "col": 5},
-                    {"row": 3, "col": 5}, {"row": 4, "col": 5}, {"row": 5, "col": 5}
+                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 1, "col": 4}, {"row": 1, "col": 3}, {"row": 1, "col": 2}, {"row": 1, "col": 1}, {"row": 1, "col": 0},
+                    {"row": 2, "col": 0}, {"row": 2, "col": 1}, {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4}, {"row": 2, "col": 5},
+                    {"row": 3, "col": 5}, {"row": 3, "col": 4}, {"row": 3, "col": 3}, {"row": 3, "col": 2}, {"row": 3, "col": 1}, {"row": 3, "col": 0},
+                    {"row": 4, "col": 0}, {"row": 4, "col": 1}, {"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4}, {"row": 4, "col": 5},
+                    {"row": 5, "col": 5}
                 ]},
                 {"from": 3, "to": 4, "path": [
-                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3},
-                    {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
-                ]}
-            ]
-        },
-        {
-            "id": "p1-l6",
-            "name": "Neon Maze",
-            "size": 6,
-            "theme": "neon-city",
-            "difficulty": 3,
-            "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 2, "col": 4},
-                {"number": 3, "row": 4, "col": 0},
-                {"number": 4, "row": 5, "col": 5}
-            ],
-            "obstacles": [
-                {"row": 1, "col": 2},
-                {"row": 2, "col": 2},
-                {"row": 3, "col": 2},
-                {"row": 3, "col": 4}
-            ],
-            "solution": [
-                {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
-                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 1, "col": 4},
-                    {"row": 2, "col": 4}
-                ]},
-                {"from": 2, "to": 3, "path": [
-                    {"row": 2, "col": 4}, {"row": 2, "col": 3}, {"row": 1, "col": 3},
-                    {"row": 1, "col": 1}, {"row": 1, "col": 0}, {"row": 2, "col": 0},
-                    {"row": 2, "col": 1}, {"row": 3, "col": 1}, {"row": 3, "col": 0}, {"row": 4, "col": 0}
-                ]},
-                {"from": 3, "to": 4, "path": [
-                    {"row": 4, "col": 0}, {"row": 5, "col": 0}, {"row": 5, "col": 1},
-                    {"row": 5, "col": 2}, {"row": 4, "col": 2}, {"row": 4, "col": 1},
-                    {"row": 3, "col": 3}, {"row": 4, "col": 3}, {"row": 4, "col": 4},
-                    {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 4, "col": 5},
-                    {"row": 3, "col": 5}, {"row": 2, "col": 5}, {"row": 1, "col": 5},
-                    {"row": 0, "col": 5}, {"row": 5, "col": 5}
-                ]}
-            ]
-        },
-        {
-            "id": "p1-l7",
-            "name": "Simple Snake",
-            "size": 6,
-            "theme": "star-sky",
-            "difficulty": 1,
-            "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 5, "col": 5}
-            ],
-            "obstacles": [
-                {"row": 1, "col": 1},
-                {"row": 1, "col": 3},
-                {"row": 3, "col": 2},
-                {"row": 3, "col": 4},
-                {"row": 4, "col": 1}
-            ],
-            "solution": [
-                {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 0, "col": 1}, {"row": 0, "col": 2},
-                    {"row": 0, "col": 3}, {"row": 0, "col": 4}, {"row": 0, "col": 5},
-                    {"row": 1, "col": 5}, {"row": 1, "col": 4}, {"row": 1, "col": 2},
-                    {"row": 1, "col": 0}, {"row": 2, "col": 0}, {"row": 2, "col": 1},
-                    {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 2, "col": 4},
-                    {"row": 2, "col": 5}, {"row": 3, "col": 5}, {"row": 3, "col": 3},
-                    {"row": 3, "col": 1}, {"row": 3, "col": 0}, {"row": 4, "col": 0},
-                    {"row": 4, "col": 2}, {"row": 4, "col": 3}, {"row": 4, "col": 4},
-                    {"row": 4, "col": 5}, {"row": 5, "col": 5}
-                ]}
-            ]
-        },
-        {
-            "id": "p1-l8",
-            "name": "Galaxy Swirl",
-            "size": 6,
-            "theme": "galaxy",
-            "difficulty": 2,
-            "points": [
-                {"number": 1, "row": 0, "col": 0},
-                {"number": 2, "row": 2, "col": 2},
-                {"number": 3, "row": 0, "col": 5},
-                {"number": 4, "row": 5, "col": 0}
-            ],
-            "obstacles": [
-                {"row": 3, "col": 3}
-            ],
-            "solution": [
-                {"from": 1, "to": 2, "path": [
-                    {"row": 0, "col": 0}, {"row": 1, "col": 0}, {"row": 1, "col": 1},
-                    {"row": 2, "col": 1}, {"row": 2, "col": 2}
-                ]},
-                {"from": 2, "to": 3, "path": [
-                    {"row": 2, "col": 2}, {"row": 2, "col": 3}, {"row": 1, "col": 3},
-                    {"row": 1, "col": 2}, {"row": 0, "col": 2}, {"row": 0, "col": 3},
-                    {"row": 0, "col": 4}, {"row": 0, "col": 5}
-                ]},
-                {"from": 3, "to": 4, "path": [
-                    {"row": 0, "col": 5}, {"row": 1, "col": 5}, {"row": 1, "col": 4},
-                    {"row": 2, "col": 4}, {"row": 2, "col": 5}, {"row": 3, "col": 5},
-                    {"row": 3, "col": 4}, {"row": 4, "col": 4}, {"row": 4, "col": 5},
-                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3},
-                    {"row": 4, "col": 3}, {"row": 4, "col": 2}, {"row": 5, "col": 2},
-                    {"row": 5, "col": 1}, {"row": 4, "col": 1}, {"row": 4, "col": 0},
-                    {"row": 5, "col": 0}
+                    {"row": 5, "col": 5}, {"row": 5, "col": 4}, {"row": 5, "col": 3}, {"row": 5, "col": 2}, {"row": 5, "col": 1}, {"row": 5, "col": 0}
                 ]}
             ]
         }
